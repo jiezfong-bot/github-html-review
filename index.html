@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会员优化评审稿</title>
+  <style>
+    :root {
+      --sidebar-width: 248px;
+      --bg: #eef3f8;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #d7deea;
+      --panel: rgba(255, 255, 255, 0.92);
+      --panel-strong: rgba(255, 255, 255, 0.97);
+      --card-border: rgba(148, 163, 184, 0.22);
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.1);
+      --accent-strong: #1d4ed8;
+      --section-soft: rgba(239, 246, 255, 0.84);
+      --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+      --radius: 24px;
+      --content-width: 1700px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--content-width));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .hero {
+      background: var(--panel-strong);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 3.8vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--accent-strong);
+      border: 1px solid rgba(37, 99, 235, 0.18);
+    }
+
+    .hero-side {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-side h2 {
+      margin: 0 0 12px;
+      font-size: 15px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta-list li {
+      display: grid;
+      gap: 2px;
+    }
+
+    .meta-label {
+      color: #64748b;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .meta-value {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      padding: 20px 14px;
+      overflow: hidden;
+    }
+
+    .toc h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      line-height: 1.35;
+      padding: 0 6px;
+    }
+
+    .toc nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .toc a:hover {
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      border-color: rgba(37, 99, 235, 0.18);
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+      min-width: 0;
+    }
+
+    section,
+    article {
+      background: var(--panel);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      padding: 24px;
+      scroll-margin-top: 18px;
+    }
+
+    section h2,
+    article h2 {
+      margin: 0 0 16px;
+      font-size: 26px;
+      line-height: 1.25;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: -4px 0 18px;
+      font-size: 14px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(191, 219, 254, 0.65);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul.flat {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    ul.flat li {
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .page-block {
+      display: grid;
+      gap: 18px;
+    }
+
+    .page-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .page-head h3 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--accent-strong);
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .page-desc {
+      color: var(--muted);
+      margin: 4px 0 0;
+      font-size: 14px;
+    }
+
+    .page-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .review-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(380px, 0.88fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .figure-wrap {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      padding: 18px;
+    }
+
+    .figure-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      border: 1px solid rgba(203, 213, 225, 0.92);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      background: #fff;
+      cursor: zoom-in;
+    }
+
+    .zoom-hint {
+      margin-top: 10px;
+      color: #64748b;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .annotation-panel {
+      background: var(--panel-strong);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .annotation-panel h4 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.35;
+    }
+
+    .annotation-intro {
+      margin: 0;
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .annotation-summary {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(191, 219, 254, 0.65);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .annotation-summary h5 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--accent-strong);
+    }
+
+    .annotation-summary p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .annotation-section {
+      background: var(--section-soft);
+      border: 1px solid rgba(191, 219, 254, 0.85);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .annotation-section h5 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: var(--accent-strong);
+    }
+
+    .annotation-section ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .annotation-section li {
+      font-size: 14px;
+      color: #0f172a;
+      line-height: 1.75;
+    }
+
+    .note-box {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px dashed rgba(37, 99, 235, 0.35);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .note-box h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .footer {
+      color: #64748b;
+      text-align: center;
+      font-size: 13px;
+      padding: 6px 0 0;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      z-index: 9999;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: min(96vw, 1800px);
+      max-height: 92vh;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .lightbox img {
+      width: min(94vw, 1700px);
+      max-width: 100%;
+      max-height: calc(92vh - 42px);
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      background: #fff;
+    }
+
+    .lightbox-caption {
+      color: #e2e8f0;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    @media (max-width: 1180px) {
+      .hero,
+      .layout,
+      .grid-two,
+      .page-meta,
+      .review-split {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .shell {
+        width: 100%;
+        padding: 0;
+      }
+
+      .button,
+      .toc {
+        display: none !important;
+      }
+
+      .hero,
+      section,
+      article,
+      .figure-wrap,
+      .annotation-panel {
+        box-shadow: none;
+        border-color: #d6dee8;
+        break-inside: avoid;
+      }
+
+      .page-block {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <div>
+        <h1>环球网校 App 会员优化评审稿</h1>
+        <p>本稿用于产品、运营、设计、研发评审。当前版本覆盖 App 三张核心页面、会员日活动后台管理两张页面，以及会员日活动前后台流转与发布校验补充说明，支持直接浏览与打印导出 PDF。</p>
+        <div class="hero-actions">
+          <button class="button button-primary" onclick="window.print()">打印 / 导出 PDF</button>
+          
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h2>版本信息</h2>
+        <ul class="meta-list">
+          <li>
+            <span class="meta-label">评审对象</span>
+            <span class="meta-value">会员权益体系升级</span>
+          </li>
+          <li>
+            <span class="meta-label">当前阶段</span>
+            <span class="meta-value">页面方案评审</span>
+          </li>
+          <li>
+            <span class="meta-label">页面范围</span>
+            <span class="meta-value">会员首页 / 订单确认页 / 邀请有礼页 / 会员日后台列表页 / 会员日后台编辑页</span>
+          </li>
+          <li>
+            <span class="meta-label">源文件</span>
+            <span class="meta-value">环球网校app会员优化.pen</span>
+          </li>
+        </ul>
+      </aside>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>目录</h2>
+        <nav>
+          <a href="#background">背景与问题</a>
+          <a href="#goals">目标与范围</a>
+          <a href="#pages">App 页面方案</a>
+          <a href="#backend">后台管理方案</a>
+          <a href="#support">会员日补充说明</a>
+          <a href="#confirm">待确认事项</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section id="background">
+          <h2>背景与问题</h2>
+          <p class="section-intro">本次评审聚焦“会员价值感知提升”和“核心权益页面承接效率提升”。</p>
+          <div class="grid-two">
+            <div class="card">
+              <h3>现状问题</h3>
+              <ul class="flat">
+                <li>会员权益分散，用户对会员身份和权益价值感知不足。</li>
+                <li>核心权益与实际使用场景脱节，导致曝光弱、触达弱、使用弱。</li>
+                <li>订单确认页和邀请有礼页虽有承接场景，但会员专属价值表达不足。</li>
+                <li>会员日前端以 H5 灵活承载，但缺少统一的后台活动化配置能力。</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>本次重点</h3>
+              <ul class="flat">
+                <li>首页统一承接会员身份、等级差异和六大权益总览。</li>
+                <li>订单确认页补充“专属购课加赠”与“消费返积分”权益提示。</li>
+                <li>邀请有礼页优化奖励排版，让注册奖励与购课奖励更清晰。</li>
+                <li>补齐会员日活动后台列表页、编辑页和发布校验说明，支撑 H5 动态展示。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="goals">
+          <h2>目标与范围</h2>
+          <div class="grid-two">
+            <div class="card">
+              <h3>评审目标</h3>
+              <ul class="flat">
+                <li>确认页面结构是否能有效承接会员权益表达。</li>
+                <li>确认关键入口、展示节奏和信息层级是否合理。</li>
+                <li>确认页面方案能否支撑后续设计细化与研发落地。</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>评审范围</h3>
+              <ul class="flat">
+                <li>会员权益首页原型</li>
+                <li>订单确认页专属购课加赠优化版</li>
+                <li>邀请有礼页优化版</li>
+                <li>会员日活动后台列表页 / 编辑页</li>
+                <li>会员日活动前后台流转、按钮弹窗与发布校验补充说明</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="pages">
+          <h2>页面方案</h2>
+          <div class="page-block" id="page-home">
+            <div class="page-head">
+              <div>
+                <h3>1. 会员权益首页</h3>
+                <p class="page-desc">统一承接会员等级、成长值和六大权益，页面采用“单列长页 + 锚点导航”结构。</p>
+              </div>
+              <span class="page-tag">会员总览页</span>
+            </div>
+            <div class="review-split">
+              <div class="figure-wrap">
+                <img src="./assets/page-only/会员权益-首页原型V2.png" alt="会员权益首页原型">
+                <div class="zoom-hint">点击图片可放大查看</div>
+              </div>
+              <aside class="annotation-panel">
+                <h4>首页标注说明</h4>
+                <p class="annotation-intro">本页采用单列长页 + 锚点导航结构。顶部展示会员等级与会员身份信息，中部展示 6 大权益快捷入口，下方按顺序展示所有权益模块内容。</p>
+                <div class="annotation-summary">
+                  <h5>页面目的</h5>
+                  <p>让用户快速感知自己是什么会员、拥有哪些权益、各权益具体能拿到什么内容。</p>
+                </div>
+                <div class="annotation-section">
+                  <h5>① 顶部等级区</h5>
+                  <ul>
+                    <li>展示青铜、白银、黄金、铂金、钻石 5 个等级。</li>
+                    <li>点击等级后，页面内容按对应会员等级切换。</li>
+                    <li>当前选中等级为高亮态，未选中等级为默认态。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>② 会员卡片区</h5>
+                  <ul>
+                    <li>展示当前会员等级名称与会员形象。</li>
+                    <li>展示成长值进度条，进度按成长值比例显示。</li>
+                    <li>右侧会员形象图为视觉占位，可替换为正式插画。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>③ 核心权益锚点</h5>
+                  <ul>
+                    <li>6 个图标均为锚点入口。</li>
+                    <li>点击图标后，页面滚动定位到下方对应权益模块。</li>
+                    <li>用户也可以直接下滑，连续浏览全部权益内容。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>④ 商品展示型模块</h5>
+                  <ul>
+                    <li>会员日活动、积分兑换、购课加赠属于商品展示型模块。</li>
+                    <li>商品内容由后台按会员等级配置。</li>
+                    <li>商品卡统一展示正方形图片 + 商品名称。</li>
+                    <li>模块操作按钮统一放在卡片右上角。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑤ 说明入口型模块</h5>
+                  <ul>
+                    <li>积分抵扣、邀请有礼、返积分属于说明入口型模块。</li>
+                    <li>积分抵扣展示说明文案与咨询入口。</li>
+                    <li>邀请有礼中：邀请注册奖励展示礼券/积分 icon 与商品图；邀请购课奖励展示多商品图。</li>
+                    <li>返积分展示当前等级倍率与规则入口。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑥ 状态与配置规则</h5>
+                  <ul>
+                    <li>会员日活动、购课加赠支持活动中、未开始、已结束、未配置 4 种状态。</li>
+                    <li>积分兑换、邀请有礼、积分抵扣依赖后台配置，未配置时不展示。</li>
+                    <li>返积分倍率按会员等级固定规则展示，不由运营随意改动。</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="page-block" id="page-order">
+            <div class="page-head">
+              <div>
+                <h3>2. 订单确认页</h3>
+                <p class="page-desc">在不重构原订单页的前提下，补充会员专属加赠和返积分提示，强化会员专属权益感知。</p>
+              </div>
+              <span class="page-tag">下单转化页</span>
+            </div>
+            <div class="review-split">
+              <div class="figure-wrap">
+                <img src="./assets/page-only/订单确认页-专属购课加赠优化版.png" alt="订单确认页优化版">
+                <div class="zoom-hint">点击图片可放大查看</div>
+              </div>
+              <aside class="annotation-panel">
+                <h4>订单确认页标注说明</h4>
+                <p class="annotation-intro">本页基于现有订单确认页做局部增强，不重构原主商品、价格区、支付区与提交订单结构，重点补充会员专属权益提示。</p>
+                <div class="annotation-summary">
+                  <h5>页面目的</h5>
+                  <p>让会员用户在付款前明确感知本单额外获得了什么，提升订单价值感和会员身份价值。</p>
+                </div>
+                <div class="annotation-section">
+                  <h5>① 展示位置</h5>
+                  <ul>
+                    <li>会员专属加赠模块放在主商品信息区下方。</li>
+                    <li>整体放在顺手带一件模块上方。</li>
+                    <li>作为订单确认页中的会员权益提示模块。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>② 展示条件</h5>
+                  <ul>
+                    <li>当前订单命中购课加赠活动。</li>
+                    <li>当前会员等级存在对应加赠商品配置。</li>
+                    <li>以上条件同时满足时展示该模块。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>③ 展示内容</h5>
+                  <ul>
+                    <li>展示标题与会员等级标签。</li>
+                    <li>展示横向滑动赠品列表。</li>
+                    <li>商品卡统一展示商品图 + 商品名称，不展示价格。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>④ 消费返积分</h5>
+                  <ul>
+                    <li>放在会员专属加赠下方、顺手带一件上方。</li>
+                    <li>作为订单确认页中的轻量权益提示模块。</li>
+                    <li>文案展示为：消费返积分｜钻石会员返178积分。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑤ 交互与文案</h5>
+                  <ul>
+                    <li>加赠模块支持左右滑动查看更多赠品。</li>
+                    <li>返积分模块不增加额外点击动作。</li>
+                    <li>整体文案强调会员专属与收益感知，避免用户误认为需要额外购买。</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="page-block" id="page-invite">
+            <div class="page-head">
+              <div>
+                <h3>3. 邀请有礼页</h3>
+                <p class="page-desc">保留原页面主视觉氛围，重点优化奖励区排版，让邀请注册奖励与邀请购课奖励一眼可读。</p>
+              </div>
+              <span class="page-tag">裂变增长页</span>
+            </div>
+            <div class="review-split">
+              <div class="figure-wrap">
+                <img src="./assets/page-only/邀请有礼页-优化版.png" alt="邀请有礼页优化版">
+                <div class="zoom-hint">点击图片可放大查看</div>
+              </div>
+              <aside class="annotation-panel">
+                <h4>邀请有礼页标注说明</h4>
+                <p class="annotation-intro">本页仅针对中部奖励区进行优化说明，顶部主视觉与底部流程区延续原页面结构，重点解决奖励内容混排和理解成本高的问题。</p>
+                <div class="annotation-summary">
+                  <h5>页面目的</h5>
+                  <p>清晰表达邀请注册奖励和邀请购课奖励，降低用户理解成本，强化立即邀请动作。</p>
+                </div>
+                <div class="annotation-section">
+                  <h5>① 结构说明</h5>
+                  <ul>
+                    <li>奖励区采用红色主卡承载。</li>
+                    <li>卡内拆分为邀请注册奖励与邀请购课奖励两个浅色子模块。</li>
+                    <li>通过分组展示降低原页面信息混排造成的理解成本。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>② 展示内容</h5>
+                  <ul>
+                    <li>邀请注册奖励展示 50 元礼券、100 积分及 3 个商品卡。</li>
+                    <li>邀请购课奖励展示 3 个商品卡。</li>
+                    <li>商品卡统一为图片 + 名称结构。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>③ 规则表达</h5>
+                  <ul>
+                    <li>每个模块右侧保留轻量条件说明。</li>
+                    <li>注册奖励表达“好友注册即得”。</li>
+                    <li>购课奖励表达“好友首购满500元”。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>④ 交互说明</h5>
+                  <ul>
+                    <li>奖励区底部保留立即邀请好友、海报邀请两个动作按钮。</li>
+                    <li>按钮为页面核心转化入口。</li>
+                    <li>奖励商品仅做展示，不增加额外点击层级。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑤ 配置说明</h5>
+                  <ul>
+                    <li>礼券数值、积分数值与商品内容均为后台可配置项。</li>
+                    <li>前台按当前活动配置进行展示。</li>
+                    <li>未配置时不展示对应奖励内容。</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section id="backend">
+          <h2>后台管理方案</h2>
+          <p class="section-intro">会员日前端采用 H5 灵活承载，本次补充后台活动化配置能力，统一管理活动时间、玩法模块、奖品与直播内容。</p>
+
+          <div class="page-block" id="page-memberday-list">
+            <div class="page-head">
+              <div>
+                <h3>4. 会员日活动管理列表页</h3>
+                <p class="page-desc">承接会员日活动的查询、创建、编辑、发布与关闭操作，列表风格延续现有专题活动管理后台。</p>
+              </div>
+              <span class="page-tag">后台列表页</span>
+            </div>
+            <div class="review-split">
+              <div class="figure-wrap">
+                <img src="./assets/review-hd/会员日活动管理-列表页-hd.png" alt="会员日活动管理列表页">
+                <div class="zoom-hint">点击图片可放大查看</div>
+              </div>
+              <aside class="annotation-panel">
+                <h4>列表页标注说明</h4>
+                <p class="annotation-intro">列表页用于统一管理会员日活动配置记录，重点解决“活动怎么查、怎么建、怎么切换发布状态”的问题。</p>
+                <div class="annotation-summary">
+                  <h5>页面目的</h5>
+                  <p>让运营可以快速筛选活动、查看状态、进入统一编辑页配置活动玩法，并完成发布或关闭动作。</p>
+                </div>
+                <div class="annotation-section">
+                  <h5>① 查询筛选区</h5>
+                  <ul>
+                    <li><strong>活动 ID</strong>：按活动唯一标识精确检索，便于快速定位历史活动。</li>
+                    <li><strong>活动名称</strong>：按名称关键词模糊搜索，用于运营快速查找指定月份或主题活动。</li>
+                    <li><strong>状态</strong>：仅分为“已发布 / 未发布”，用于区分活动是否已对前台生效。</li>
+                    <li><strong>活动时间</strong>：按开始时间和结束时间筛选，用于查看某个时间段内的活动记录。</li>
+                    <li><strong>查询按钮</strong>：点击后按当前筛选条件刷新列表结果。</li>
+                    <li><strong>创建活动按钮</strong>：点击后进入统一编辑页，新增一条会员日活动记录。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>② 活动列表字段</h5>
+                  <ul>
+                    <li><strong>活动 ID</strong>：系统生成，用于后台唯一识别一条活动。</li>
+                    <li><strong>活动名称</strong>：运营配置的活动主标题，用于列表识别与后续前台取数。</li>
+                    <li><strong>状态</strong>：展示当前活动是否已发布。</li>
+                    <li><strong>活动开始时间 / 结束时间</strong>：定义活动生效时间范围。</li>
+                    <li><strong>创建时间</strong>：记录活动创建时间，便于排查历史版本。</li>
+                    <li><strong>更新人</strong>：记录最近一次修改活动的后台操作人。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>③ 操作与交互</h5>
+                  <ul>
+                    <li><strong>编辑</strong>：进入统一编辑页，配置基础信息与四类活动玩法。</li>
+                    <li><strong>发布</strong>：当活动为未发布状态时可点击，发布前需通过字段与玩法校验。</li>
+                    <li><strong>关闭</strong>：当活动为已发布状态时可点击，关闭后前台不再按该活动配置展示。</li>
+                    <li>列表页不再单独拆出“玩法配置”入口，所有配置统一在编辑页完成。</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="page-block" id="page-memberday-edit">
+            <div class="page-head">
+              <div>
+                <h3>5. 会员日活动编辑页</h3>
+                <p class="page-desc">将基础信息与玩法配置收敛在同一页完成，支持购课抽奖、礼品免费领取、刮刮乐送积分和会员日直播四类玩法配置。</p>
+              </div>
+              <span class="page-tag">后台编辑页</span>
+            </div>
+            <div class="review-split">
+              <div class="figure-wrap">
+                <img src="./assets/review-hd/会员日活动管理-编辑页-hd.png" alt="会员日活动编辑页">
+                <div class="zoom-hint">点击图片可放大查看</div>
+              </div>
+              <aside class="annotation-panel">
+                <h4>编辑页标注说明</h4>
+                <p class="annotation-intro">编辑页采用“基础信息 + 玩法配置”一体化结构，减少后台多页面跳转，让运营在一页内完成活动搭建、保存与发布。</p>
+                <div class="annotation-summary">
+                  <h5>页面目的</h5>
+                  <p>统一配置会员日活动时间与玩法内容，保证后台配置项可以直接支撑前台 H5 和会员首页入口的动态展示。</p>
+                </div>
+                <div class="annotation-section">
+                  <h5>① 基础信息</h5>
+                  <ul>
+                    <li><strong>活动名称</strong>：活动主名称，作为后台识别名称和前台 H5 标题来源之一。</li>
+                    <li><strong>活动开始时间 / 结束时间</strong>：定义活动的生效时间区间，用于控制前台是否取当前活动配置。</li>
+                    <li><strong>保存按钮</strong>：保存当前页配置但不生效，活动状态仍保持未发布。</li>
+                    <li><strong>发布活动按钮</strong>：点击后执行整页校验，校验通过则将活动状态切换为已发布。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>② 购课抽奖配置</h5>
+                  <ul>
+                    <li><strong>添加奖品按钮</strong>：点击后拉起奖品选择弹窗，支持从系统中多选课程商品或实物商品。</li>
+                    <li><strong>奖品列表字段</strong>：展示商品名称、所属类目、价格、抽奖概率、操作。</li>
+                    <li><strong>抽奖概率输入框</strong>：运营手动填写每个奖品的中签概率。</li>
+                    <li><strong>概率校验</strong>：所有奖品概率相加必须等于 100%，否则不可发布。</li>
+                    <li><strong>删除按钮</strong>：删除当前奖品行，同步重新计算概率总和。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>③ 礼品免费领取</h5>
+                  <ul>
+                    <li><strong>分会员等级配置</strong>：青铜、白银、黄金、铂金、钻石分别配置不同礼品。</li>
+                    <li><strong>礼品类型</strong>：仅分为优惠券、商品、积分三类。</li>
+                    <li><strong>礼品内容</strong>：根据礼品类型选择具体优惠券、商品或积分值。</li>
+                    <li><strong>限领数量输入框</strong>：运营填写每个礼品的可领份数，用于前台领取库存控制。</li>
+                    <li><strong>添加礼品 / 删除按钮</strong>：分别用于新增一条礼品配置和移除当前礼品行。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>④ 刮刮乐送积分</h5>
+                  <ul>
+                    <li><strong>新增积分档位按钮</strong>：新增一个积分值配置行。</li>
+                    <li><strong>积分值</strong>：配置前台刮刮乐可能出现的积分奖励数值。</li>
+                    <li><strong>概率输入框</strong>：填写该积分值出现的概率。</li>
+                    <li><strong>概率校验</strong>：所有积分档位概率总和必须等于 100%。</li>
+                    <li><strong>删除按钮</strong>：移除当前积分档位。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑤ 会员日直播</h5>
+                  <ul>
+                    <li><strong>选择直播按钮</strong>：从系统直播库中多选直播课节。</li>
+                    <li><strong>列表表头</strong>：预约课节 ID、直播主题、所属类目、开始时间。</li>
+                    <li><strong>列表作用</strong>：展示当前已关联到会员日活动的直播内容，供前台 H5 直接取数。</li>
+                    <li><strong>删除按钮</strong>：移除当前直播配置。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑥ 页面交互与发布逻辑</h5>
+                  <ul>
+                    <li>编辑页内所有玩法配置统一在本页完成，不再拆分页或二级配置页。</li>
+                    <li>启用某个玩法时，必须至少配置一条有效数据，否则不可发布。</li>
+                    <li>涉及概率的配置块发布前必须满足总和为 100%。</li>
+                    <li>发布成功后，前台 H5 与会员首页“会员日活动”入口读取当前已发布且在时间范围内的活动数据。</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section id="support">
+          <h2>会员日活动补充说明</h2>
+          <p class="section-intro">本节用于补充正式评审中研发、测试、运营最容易继续追问的内容，包括前后台流转关系、按钮弹窗交互、发布校验和关键状态定义。</p>
+          <div class="review-split">
+            <div class="figure-wrap">
+              <img src="./assets/review-hd/会员日活动评审补充说明-hd.png" alt="会员日活动评审补充说明">
+              <div class="zoom-hint">点击图片可放大查看</div>
+            </div>
+            <aside class="annotation-panel">
+              <h4>补充说明摘要</h4>
+              <p class="annotation-intro">这部分不是新增页面，而是把会员日活动从“后台配置”到“前台 H5 展示”的关键逻辑补齐，便于研发评估实现边界、测试整理校验用例。</p>
+              <div class="annotation-summary">
+                <h5>补充目的</h5>
+                <p>避免评审时只看页面结构，忽略后台配置如何驱动前台生效、按钮点击后如何回填、以及哪些校验会阻止发布。</p>
+              </div>
+              <div class="annotation-section">
+                <h5>① 前后台流转关系</h5>
+                <ul>
+                  <li>后台创建活动并完成玩法配置。</li>
+                  <li>活动发布后，前台 H5 根据已发布活动和活动时间拉取对应配置。</li>
+                  <li>会员首页“会员日活动”模块读取当前活动摘要信息，点击进入 H5 活动页。</li>
+                </ul>
+              </div>
+              <div class="annotation-section">
+                <h5>② 按钮与弹窗交互</h5>
+                <ul>
+                  <li><strong>添加奖品</strong>：打开商品选择弹窗，多选后回填到购课抽奖列表。</li>
+                  <li><strong>添加礼品</strong>：根据礼品类型打开对应选择器，回填到等级礼品列表。</li>
+                  <li><strong>新增积分档位</strong>：直接在当前列表新增空行，等待输入积分值与概率。</li>
+                  <li><strong>选择直播</strong>：打开直播选择弹窗，多选后回填直播列表。</li>
+                </ul>
+              </div>
+              <div class="annotation-section">
+                <h5>③ 发布校验规则</h5>
+                <ul>
+                  <li>活动名称、开始时间、结束时间为必填项。</li>
+                  <li>购课抽奖和刮刮乐送积分的概率总和必须等于 100%。</li>
+                  <li>礼品免费领取的礼品内容和限领数量均不能为空。</li>
+                  <li>启用会员日直播玩法时，至少需要选择一条直播数据。</li>
+                </ul>
+              </div>
+              <div class="annotation-section">
+                <h5>④ 关键状态说明</h5>
+                <ul>
+                  <li><strong>未发布</strong>：后台可编辑但前台不生效。</li>
+                  <li><strong>已发布</strong>：活动配置可被前台读取，前提是当前时间命中活动时间范围。</li>
+                  <li><strong>超出活动时间</strong>：活动配置保留在后台历史记录中，前台不再按活动态展示。</li>
+                  <li><strong>未配置玩法</strong>：对应玩法模块在前台不展示或不生效。</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="confirm">
+          <h2>待确认事项</h2>
+          <div class="note-box">
+            <h3>建议评审会上重点确认</h3>
+            <ul class="flat">
+              <li>首页六大权益的信息层级和展示顺序是否确认。</li>
+              <li>订单确认页的会员专属加赠与返积分提示位置是否确认。</li>
+              <li>邀请有礼页奖励区改版后，是否满足运营诉求与后续配置方式。</li>
+              <li>会员日活动后台列表页和编辑页的字段定义、按钮交互和发布状态是否确认。</li>
+              <li>会员日活动四类玩法的配置规则、概率校验和前台取数逻辑是否确认。</li>
+              <li>当前页面文案、商品内容、奖励内容中哪些是固定规则，哪些依赖后台配置。</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="footer">本文件用于评审展示，源原型与后续调整请以 .pen 文件为准。</div>
+      </main>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close" type="button" aria-label="关闭">×</button>
+      <img id="lightbox-image" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxClose = document.getElementById('lightbox-close');
+      const zoomableImages = document.querySelectorAll('.figure-wrap img');
+
+      function openLightbox(img) {
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt || '';
+        lightboxCaption.textContent = img.alt || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+        document.body.style.overflow = '';
+      }
+
+      zoomableImages.forEach((img) => {
+        img.addEventListener('click', () => openLightbox(img));
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

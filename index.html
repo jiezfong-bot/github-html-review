@@ -338,6 +338,10 @@
       cursor: zoom-in;
     }
 
+    .figure-wrap img.tall-figure {
+      image-rendering: auto;
+    }
+
     .zoom-hint {
       margin-top: 10px;
       color: #64748b;
@@ -467,6 +471,60 @@
       border-radius: 18px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
       background: #fff;
+    }
+
+    .lightbox.scroll-mode {
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 18px;
+    }
+
+    .lightbox.scroll-mode .lightbox-inner {
+      width: min(98vw, 1900px);
+      max-width: min(98vw, 1900px);
+      max-height: 96vh;
+      height: 96vh;
+      background: rgba(15, 23, 42, 0.18);
+      border-radius: 20px;
+      padding: 18px;
+      overflow: auto;
+      justify-items: start;
+      align-content: start;
+    }
+
+    .lightbox.scroll-mode img {
+      width: auto;
+      max-width: none;
+      max-height: none;
+      height: auto;
+      min-width: min(96vw, 1600px);
+      border-radius: 12px;
+    }
+
+    .lightbox-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .lightbox-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
     }
 
     .lightbox-caption {
@@ -853,7 +911,7 @@
             </div>
             <div class="review-split">
               <div class="figure-wrap">
-                <img src="./assets/review-hd/会员日活动管理-列表页-hd.png" alt="会员日活动管理列表页">
+                <img class="tall-figure" data-lightbox-mode="scroll" src="./assets/review-hd/会员日活动管理-列表页-hd.png" alt="会员日活动管理列表页">
                 <div class="zoom-hint">点击图片可放大查看</div>
               </div>
               <aside class="annotation-panel">
@@ -908,7 +966,7 @@
             </div>
             <div class="review-split">
               <div class="figure-wrap">
-                <img src="./assets/review-hd/会员日活动管理-编辑页-hd.png" alt="会员日活动编辑页">
+                <img class="tall-figure" data-lightbox-mode="scroll" src="./assets/review-hd/会员日活动管理-编辑页-hd.png" alt="会员日活动编辑页">
                 <div class="zoom-hint">点击图片可放大查看</div>
               </div>
               <aside class="annotation-panel">
@@ -985,7 +1043,7 @@
           <p class="section-intro">本节用于补充正式评审中研发、测试、运营最容易继续追问的内容，包括前后台流转关系、按钮弹窗交互、发布校验和关键状态定义。</p>
           <div class="review-split">
             <div class="figure-wrap">
-              <img src="./assets/review-hd/会员日活动评审补充说明-hd.png" alt="会员日活动评审补充说明">
+              <img class="tall-figure" data-lightbox-mode="scroll" src="./assets/review-hd/会员日活动评审补充说明-hd.png" alt="会员日活动评审补充说明">
               <div class="zoom-hint">点击图片可放大查看</div>
             </div>
             <aside class="annotation-panel">
@@ -1056,6 +1114,9 @@
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-inner">
+      <div class="lightbox-toolbar">
+        <a class="lightbox-link" id="lightbox-open-original" href="#" target="_blank" rel="noopener noreferrer">打开原图</a>
+      </div>
       <button class="lightbox-close" id="lightbox-close" type="button" aria-label="关闭">×</button>
       <img id="lightbox-image" src="" alt="">
       <div class="lightbox-caption" id="lightbox-caption"></div>
@@ -1068,12 +1129,16 @@
       const lightboxImage = document.getElementById('lightbox-image');
       const lightboxCaption = document.getElementById('lightbox-caption');
       const lightboxClose = document.getElementById('lightbox-close');
+      const lightboxOpenOriginal = document.getElementById('lightbox-open-original');
       const zoomableImages = document.querySelectorAll('.figure-wrap img');
 
       function openLightbox(img) {
+        const mode = img.dataset.lightboxMode || 'fit';
         lightboxImage.src = img.src;
         lightboxImage.alt = img.alt || '';
         lightboxCaption.textContent = img.alt || '';
+        lightboxOpenOriginal.href = img.src;
+        lightbox.classList.toggle('scroll-mode', mode === 'scroll');
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -1081,8 +1146,10 @@
 
       function closeLightbox() {
         lightbox.classList.remove('open');
+        lightbox.classList.remove('scroll-mode');
         lightbox.setAttribute('aria-hidden', 'true');
         lightboxImage.src = '';
+        lightboxOpenOriginal.href = '#';
         document.body.style.overflow = '';
       }
 

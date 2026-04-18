@@ -603,7 +603,7 @@
         <p>本稿用于产品、运营、设计、研发评审。当前版本覆盖 App 三张核心页面、会员日活动后台管理两张页面，以及会员日活动前后台流转与发布校验补充说明，支持直接浏览与打印导出 PDF。</p>
         <div class="hero-actions">
           <button class="button button-primary" onclick="window.print()">打印 / 导出 PDF</button>
-          
+          <a class="button button-secondary" href="./PRD-%E4%BC%9A%E5%91%98%E6%9D%83%E7%9B%8A%E4%BD%93%E7%B3%BB%E5%8D%87%E7%BA%A7.md">查看 PRD</a>
         </div>
       </div>
       <aside class="hero-side">
@@ -645,7 +645,7 @@
       <main class="content">
         <section id="background">
           <h2>背景与问题</h2>
-          <p class="section-intro">本次评审聚焦“会员价值感知提升”和“核心权益页面承接效率提升”。</p>
+          <p class="section-intro">按页面拆分展示 App 端原型与标注说明。</p>
           <div class="grid-two">
             <div class="card">
               <h3>现状问题</h3>
@@ -704,62 +704,82 @@
             </div>
             <div class="review-split">
               <div class="figure-wrap">
-                <img src="./assets/page-only/会员权益-首页原型V2.png" alt="会员权益首页原型">
+                <img src="./assets/page-only/%E4%BC%9A%E5%91%98%E6%9D%83%E7%9B%8A-%E9%A6%96%E9%A1%B5%E5%8E%9F%E5%9E%8BV2.png" alt="会员权益首页原型">
                 <div class="zoom-hint">点击图片可放大查看</div>
               </div>
               <aside class="annotation-panel">
                 <h4>首页标注说明</h4>
-                <p class="annotation-intro">以下按模块拆分说明会员权益首页的展示规则、字段与交互。</p>
-                <div class="annotation-summary">
-                  <h5>页面说明</h5>
-                  <p>本页采用单列长页 + 锚点导航结构，统一承接会员等级、成长值与六大权益入口。</p>
-                </div>
+                <p class="annotation-intro">按模块拆分说明。</p>
                 <div class="annotation-section">
                   <h5>① 会员等级切换</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示青铜、白银、黄金、铂金、钻石 5 个等级；当前等级高亮展示。</li>
-                    <li><strong>字段</strong>：等级名称固定为青铜、白银、黄金、铂金、钻石；选中状态按当前会员等级展示。</li>
-                    <li><strong>交互</strong>：点击等级后，页面内容按对应会员等级切换。</li>
+                    <li><strong>展示规则</strong>：常驻显示，位于页面顶部；当前会员等级高亮展示，其余等级普通态展示。</li>
+                    <li><strong>字段</strong>：（1）等级名称：固定为青铜、白银、黄金、铂金、钻石。（2）当前等级：按用户当前会员等级展示高亮态。（3）未选中等级：固定普通态展示。</li>
+                    <li><strong>交互</strong>：点击等级后切换当前会员等级视图，页面内权益内容同步切换。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>② 会员卡片</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示，位于页面顶部。</li>
-                    <li><strong>字段</strong>：会员等级展示当前选中等级名称；成长值展示当前成长值 / 升级所需成长值；进度条按成长值占比展示；会员形象当前为视觉占位。</li>
+                    <li><strong>展示规则</strong>：常驻显示，位于页面顶部。</li>
+                    <li><strong>字段</strong>：（1）会员等级：展示当前选中等级名称。（2）成长值：当前成长值 / 升级所需成长值。（3）进度条：成长值 / 升级门槛，按百分比展示。（4）“了解详情”：按钮文案固定。</li>
                     <li><strong>交互</strong>：点击“了解详情”查看成长值规则，其余交互保持不变。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>③ 核心权益入口</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示 6 个权益入口，位置固定在会员卡下方。</li>
-                    <li><strong>字段</strong>：icon&amp;名称固定为会员日、积分兑换、购课加赠、邀请有礼、积分抵扣、返积分；入口顺序固定。</li>
+                    <li><strong>展示规则</strong>：常驻显示 6 个权益入口，位置固定在会员卡下方。</li>
+                    <li><strong>字段</strong>：（1）icon&amp;名称：固定为会员日、积分兑换、邀请有礼、购课加赠、积分抵扣、返积分。（2）入口顺序：按上述顺序展示，不随后台配置变化。</li>
                     <li><strong>交互</strong>：点击入口后，页面滚动定位到下方对应权益模块。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
-                  <h5>④ 商品展示型模块</h5>
+                  <h5>④ 会员日活动</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：会员日活动、积分兑换、购课加赠按页面顺序展示；若后台无对应配置则隐藏。</li>
-                    <li><strong>字段</strong>：模块标题固定；商品内容按会员等级读取后台配置；商品图固定为正方形展示；按钮文案按模块固定展示。</li>
-                    <li><strong>交互</strong>：点击模块右上角按钮进入对应活动页、兑换页或详情页。</li>
+                    <li><strong>展示规则</strong>：按页面顺序展示在权益详情首位；若后台无活动配置则隐藏。</li>
+                    <li><strong>字段</strong>：（1）模块标题：固定为“会员日活动”。（2）商品名称：本版本优先读取接口返回名称；后续后台上线后读取后台配置名称。（3）商品图片：本版本优先读取接口返回图片；后续后台上线后读取后台配置图片，统一为正方形展示。（4）按钮文案：固定为“查看详情”。</li>
+                    <li><strong>交互</strong>：点击右上角按钮进入会员日活动页。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
-                  <h5>⑤ 说明入口型模块</h5>
+                  <h5>⑤ 专属积分兑换</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：积分抵扣、邀请有礼、消费返积分按页面顺序展示；积分抵扣与邀请有礼若无配置则隐藏。</li>
-                    <li><strong>字段</strong>：积分抵扣文案固定为“添加助教老师进行积分抵扣”；邀请有礼奖励内容读取后台配置；消费返积分展示当前会员等级对应倍率。</li>
-                    <li><strong>交互</strong>：点击积分抵扣进入咨询入口；点击邀请有礼进入邀请页；点击返积分规则入口查看说明。</li>
+                    <li><strong>展示规则</strong>：按页面顺序展示在会员日活动下方；若后台无兑换配置则隐藏。</li>
+                    <li><strong>字段</strong>：（1）模块标题：固定为“专属积分兑换”。（2）商品内容：按当前会员等级读取后台配置。（3）商品图：统一为正方形展示。（4）按钮文案：固定为“立即兑换”。</li>
+                    <li><strong>交互</strong>：点击右上角按钮进入积分兑换页。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
-                  <h5>⑥ 状态差异</h5>
+                  <h5>⑥ 邀请有礼</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：会员日活动、专属购课加赠按活动状态展示活动中、未开始、已结束、未配置；专属积分兑换、邀请有礼、积分抵扣按后台配置展示。</li>
-                    <li><strong>字段</strong>：状态文案按活动状态展示；返积分倍率固定为青铜 1 倍、白银 1 倍、黄金 1.1 倍、铂金 1.2 倍、钻石 1.3 倍。</li>
-                    <li><strong>交互</strong>：未配置模块不响应点击，其余模块交互保持不变。</li>
+                    <li><strong>展示规则</strong>：按页面顺序展示在专属积分兑换下方；若后台有邀请奖励配置则显示，否则隐藏。</li>
+                    <li><strong>字段</strong>：（1）模块标题：固定为“邀请有礼”。（2）邀请注册奖励：读取后台配置。（3）邀请购课奖励：读取后台配置。（4）按钮文案：固定为“立即邀请”。</li>
+                    <li><strong>交互</strong>：点击右上角按钮进入邀请有礼页。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑦ 专属购课加赠</h5>
+                  <ul>
+                    <li><strong>展示规则</strong>：按页面顺序展示在邀请有礼下方；仅在活动进行中且有加赠配置时显示，否则隐藏。</li>
+                    <li><strong>字段</strong>：（1）模块标题：固定为“专属购课加赠”。（2）权益说明：固定为“专属购课好礼，只为会员开放”。（3）按钮文案：固定为“立即查看”。</li>
+                    <li><strong>交互</strong>：点击右上角按钮进入购课活动页或详情页。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑧ 会员积分抵扣</h5>
+                  <ul>
+                    <li><strong>展示规则</strong>：按老师配置后台常规展示；当会员积分抵扣位置已配置承接老师时展示。</li>
+                    <li><strong>字段</strong>：（1）模块标题：固定为“会员积分抵扣”。（2）说明文案：固定为“添加助教老师进行积分抵扣”。（3）老师配置来源：在既有老师配置后台“生效场景”中，环球网校App后新增“会员积分抵扣”位置，运营勾选后配置承接老师。（4）按钮文案：固定为“立即咨询”。</li>
+                    <li><strong>交互</strong>：点击右上角按钮进入已配置老师的咨询入口。</li>
+                  </ul>
+                </div>
+                <div class="annotation-section">
+                  <h5>⑨ 消费返积分</h5>
+                  <ul>
+                    <li><strong>展示规则</strong>：按页面顺序展示在会员积分抵扣下方；若当前用户会员等级有返积分倍率配置则显示，否则隐藏。</li>
+                    <li><strong>字段</strong>：（1）模块标题：固定为“消费返积分”。（2）描述文案：按当前用户会员等级动态展示，对应文案模板为“{会员等级}会员消费返{倍率}倍积分”。（3）兑换说明：固定为“积分可兑换实物周边/卡券/课程”。</li>
+                    <li><strong>交互</strong>：该模块仅做权益信息展示，不增加额外点击动作。</li>
                   </ul>
                 </div>
               </aside>
@@ -776,22 +796,18 @@
             </div>
             <div class="review-split">
               <div class="figure-wrap">
-                <img src="./assets/page-only/订单确认页-专属购课加赠优化版.png" alt="订单确认页优化版">
+                <img src="./assets/page-only/%E8%AE%A2%E5%8D%95%E7%A1%AE%E8%AE%A4%E9%A1%B5-%E4%B8%93%E5%B1%9E%E8%B4%AD%E8%AF%BE%E5%8A%A0%E8%B5%A0%E4%BC%98%E5%8C%96%E7%89%88.png" alt="订单确认页优化版">
                 <div class="zoom-hint">点击图片可放大查看</div>
               </div>
               <aside class="annotation-panel">
                 <h4>订单确认页标注说明</h4>
-                <p class="annotation-intro">以下按会员专属加赠、消费返积分与改动边界拆分说明订单确认页改动。</p>
-                <div class="annotation-summary">
-                  <h5>页面说明</h5>
-                  <p>本次仅补充会员权益提示，不调整原主商品、价格区、支付区与提交订单结构。</p>
-                </div>
+                <p class="annotation-intro">按模块拆分说明。</p>
                 <div class="annotation-section">
                   <h5>① 会员专属加赠</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：命中购课加赠活动且当前会员等级有加赠配置时展示；位置在主商品区下方、顺手带一件上方。</li>
-                    <li><strong>字段</strong>：标题固定为“会员专属加赠”；会员标签按当前等级展示；赠品内容读取后台配置；商品卡展示商品图 + 商品名称，不展示价格。</li>
-                    <li><strong>交互</strong>：赠品列表支持左右滑动查看更多商品。</li>
+                    <li><strong>展示规则</strong>：命中购课加赠活动且活动已启用时展示；位置在主商品区下方、顺手带一件上方。</li>
+                    <li><strong>字段</strong>：标题固定为“会员专属加赠”；赠品内容读取后台配置；商品卡仅展示商品名称，一行展示一个商品，不展示商品图片与价格。</li>
+                    <li><strong>交互</strong>：该模块仅展示赠品信息，不增加额外点击动作。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
@@ -806,7 +822,7 @@
                   <h5>③ 改动边界</h5>
                   <ul>
                     <li><strong>展示规则</strong>：原主商品、顺手带一件、价格区、支付区、提交订单按钮保持原位置与结构不变。</li>
-                    <li><strong>字段</strong>：新增模块以会员权益信息为主，不改变原订单金额与优惠口径。</li>
+                    <li><strong>字段</strong>：（1）订单金额：延续原订单页计算口径。（2）优惠金额：延续原订单页优惠口径。（3）支付金额：延续原订单页展示与计算口径。</li>
                     <li><strong>交互</strong>：原订单确认链路保持不变。</li>
                   </ul>
                 </div>
@@ -824,16 +840,12 @@
             </div>
             <div class="review-split">
               <div class="figure-wrap">
-                <img src="./assets/page-only/邀请有礼页-优化版.png" alt="邀请有礼页优化版">
+                <img src="./assets/page-only/%E9%82%80%E8%AF%B7%E6%9C%89%E7%A4%BC%E9%A1%B5-%E4%BC%98%E5%8C%96%E7%89%88.png" alt="邀请有礼页优化版">
                 <div class="zoom-hint">点击图片可放大查看</div>
               </div>
               <aside class="annotation-panel">
                 <h4>邀请有礼页标注说明</h4>
-                <p class="annotation-intro">以下按邀请注册奖励、邀请购课奖励、按钮区与改动边界拆分说明邀请有礼页改动。</p>
-                <div class="annotation-summary">
-                  <h5>页面说明</h5>
-                  <p>原顶部主视觉与底部流程区保持不变，本次仅调整中部奖励区排版。</p>
-                </div>
+                <p class="annotation-intro">按模块拆分说明。</p>
                 <div class="annotation-section">
                   <h5>① 邀请注册奖励</h5>
                   <ul>
@@ -861,8 +873,8 @@
                 <div class="annotation-section">
                   <h5>④ 改动边界</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：顶部主视觉与底部福利获取流程保持不变。</li>
-                    <li><strong>字段</strong>：本次仅调整奖励区展示结构，不新增新的奖励类型。</li>
+                    <li><strong>展示规则</strong>：顶部主视觉与底部福利获取流程保持不变；本次仅调整中部奖励区结构。</li>
+                    <li><strong>字段</strong>：（1）奖励类型：仍为礼券、积分、商品，不新增类型。（2）顶部主视觉文案：沿用原页面配置。（3）底部流程说明：沿用原页面配置。</li>
                     <li><strong>交互</strong>：原页面分享逻辑保持不变。</li>
                   </ul>
                 </div>
@@ -873,7 +885,7 @@
 
         <section id="backend">
           <h2>后台管理方案</h2>
-          <p class="section-intro">会员日前端采用 H5 灵活承载，本次补充后台活动化配置能力，统一管理活动时间、玩法模块、奖品与直播内容。</p>
+          <p class="section-intro">按后台列表页、编辑页与补充规则拆分展示。</p>
 
           <div class="page-block" id="page-memberday-list">
             <div class="page-head">
@@ -890,33 +902,29 @@
               </div>
               <aside class="annotation-panel">
                 <h4>列表页标注说明</h4>
-                <p class="annotation-intro">以下按筛选栏、列表、操作按钮区拆分说明会员日活动管理列表页。</p>
-                <div class="annotation-summary">
-                  <h5>页面说明</h5>
-                  <p>列表页用于统一管理会员日活动记录，承接活动查询、创建、编辑与发布状态切换。</p>
-                </div>
+                <p class="annotation-intro">按功能区拆分说明。</p>
                 <div class="annotation-section">
                   <h5>① 筛选栏</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：筛选栏常驻展示，位于列表上方。</li>
-                    <li><strong>字段</strong>：活动ID支持精确查询；活动名称支持模糊查询；状态默认全部，可选已发布、未发布；活动时间按开始时间和结束时间筛选；查询按钮文案固定为“查询”。</li>
-                    <li><strong>交互</strong>：点击查询后按当前条件刷新列表。</li>
+                    <li><strong>展示规则</strong>：常驻展示在列表上方；筛选项按活动ID、活动名称、状态、活动时间顺序展示。</li>
+                    <li><strong>字段</strong>：（1）活动ID：支持精确查询。（2）活动名称：支持模糊查询。（3）状态：默认全部，可选已发布、未发布。（4）活动时间：按开始时间和结束时间筛选。（5）查询按钮：文案固定为“查询”。</li>
+                    <li><strong>交互</strong>：点击“查询”后按当前条件刷新列表。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>② 列表</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：展示满足筛选条件的活动记录。</li>
-                    <li><strong>字段</strong>：活动ID、活动名称使用普通文本展示；状态取值为已发布、未发布；活动开始时间 / 结束时间、创建时间按 yyyy-mm-dd hh:mm:ss 展示；更新人展示最后修改人姓名。</li>
+                    <li><strong>展示规则</strong>：展示当前筛选条件下的活动列表；状态使用纯文本展示，不通过颜色区分。</li>
+                    <li><strong>字段</strong>：（1）活动ID：普通文本展示。（2）活动名称：普通文本展示。（3）状态：取值为已发布、未发布。（4）活动开始时间 / 活动结束时间：格式 yyyy-mm-dd hh:mm:ss。（5）创建时间：格式 yyyy-mm-dd hh:mm:ss。（6）更新人：展示最后修改人姓名。</li>
                     <li><strong>交互</strong>：列表字段不支持点击跳转。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>③ 操作按钮区</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：创建活动按钮常驻展示；发布、关闭按状态差异展示。</li>
-                    <li><strong>字段</strong>：创建活动按钮文案固定为“创建活动”；编辑文案固定为“编辑”；发布仅未发布状态展示；关闭仅已发布状态展示。</li>
-                    <li><strong>交互</strong>：点击创建活动进入空白编辑页；点击编辑进入对应活动编辑页；点击发布后状态切换为已发布；点击关闭后状态切换为未发布并刷新列表。</li>
+                    <li><strong>展示规则</strong>：创建活动常驻展示；编辑常驻展示；发布、关闭按活动状态切换展示。</li>
+                    <li><strong>字段</strong>：（1）创建活动：按钮文案固定为“创建活动”。（2）编辑：按钮文案固定为“编辑”。（3）发布：仅未发布状态展示。（4）关闭：仅已发布状态展示。</li>
+                    <li><strong>交互</strong>：点击创建活动进入空白编辑页；点击编辑进入对应活动编辑页；点击发布或关闭后刷新列表。</li>
                   </ul>
                 </div>
               </aside>
@@ -938,57 +946,81 @@
               </div>
               <aside class="annotation-panel">
                 <h4>编辑页标注说明</h4>
-                <p class="annotation-intro">以下按基本信息、玩法配置与按钮区拆分说明会员日活动编辑页。</p>
-                <div class="annotation-summary">
-                  <h5>页面说明</h5>
-                  <p>编辑页将基础信息与四类玩法配置收敛在同一页完成，用于支撑前台 H5 动态渲染。</p>
-                </div>
+                <p class="annotation-intro">按功能区拆分说明。</p>
                 <div class="annotation-section">
                   <h5>① 基本信息</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示，位于编辑页顶部。</li>
-                    <li><strong>字段</strong>：活动名称必填，输入框控件；活动开始时间必填，时间控件；活动结束时间必填，时间控件。</li>
-                    <li><strong>交互</strong>：输入内容后点击保存或发布提交表单。</li>
+                    <li><strong>展示规则</strong>：常驻展示在编辑页顶部；发布前需先完成基础信息填写。</li>
+                    <li><strong>字段</strong>：（1）活动名称：必填，输入框控件，用于后台识别活动。（2）活动开始时间：必填，时间控件。（3）活动结束时间：必填，时间控件。</li>
+                    <li><strong>交互</strong>：点击保存或发布时，校验上述字段是否填写完整。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>② 购课抽奖</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示；点击添加奖品后，下方表格展示已选奖品。</li>
-                    <li><strong>字段</strong>：奖品名称展示已选商品名称；所属类目展示奖品对应考试类目；价格单位为元；抽奖概率为输入框，单位 %。</li>
-                    <li><strong>交互</strong>：点击添加奖品打开商品选择弹窗，支持从课程商品、实物商品中多选；点击删除移除当前奖品行；发布前校验所有奖品概率相加必须等于 100%。</li>
+                    <li><strong>展示规则</strong>：作为独立玩法模块展示在基本信息下方；支持按奖品行逐条配置。</li>
+                    <li><strong>字段</strong>：（1）奖品类型：可选课程商品、实物商品。（2）奖品名称：展示已选商品名称。（3）所属类目：展示奖品对应考试类目。（4）价格：展示商品价格，单位元。（5）抽奖概率：输入框填写，单位 %。</li>
+                    <li><strong>交互</strong>：点击“添加奖品”打开商品选择弹窗；点击删除移除当前奖品行；发布前校验概率总和等于 100%。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>③ 礼品免费领取</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示；按会员等级逐行配置礼品。</li>
-                    <li><strong>字段</strong>：会员等级固定为青铜、白银、黄金、铂金、钻石；礼品类型可选优惠券、商品、积分；礼品内容展示具体优惠券、商品或积分面额；限领数量为输入框，单位份。</li>
-                    <li><strong>交互</strong>：点击添加礼品新增配置行；点击删除移除当前礼品行。</li>
+                    <li><strong>展示规则</strong>：作为独立玩法模块展示；按会员等级逐条配置可领取礼品。</li>
+                    <li><strong>字段</strong>：（1）会员等级：固定为青铜、白银、黄金、铂金、钻石。（2）礼品类型：可选优惠券、商品、积分。（3）礼品内容：展示具体优惠券、商品或积分面额。（4）限领数量：输入框填写，单位份。</li>
+                    <li><strong>交互</strong>：点击“添加礼品”新增配置行；点击删除移除当前礼品行。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>④ 刮刮乐送积分</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示；支持配置多个积分档位。</li>
-                    <li><strong>字段</strong>：积分值展示用户刮中后可获得的积分数，单位积分；概率为输入框，单位 %。</li>
-                    <li><strong>交互</strong>：点击新增积分档位新增一行；点击删除移除当前积分行；发布前校验所有积分档位概率相加必须等于 100%。</li>
+                    <li><strong>展示规则</strong>：作为独立玩法模块展示；支持配置多个积分档位。</li>
+                    <li><strong>字段</strong>：（1）积分值：展示用户刮中后可获得的积分数，单位积分。（2）概率：输入框填写，单位 %。</li>
+                    <li><strong>交互</strong>：点击“新增积分档位”新增一行；点击删除移除当前积分行；发布前校验概率总和等于 100%。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>⑤ 会员日直播</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：常驻展示；已选直播在下方表格展示。</li>
-                    <li><strong>字段</strong>：预约课节ID展示直播唯一ID；直播主题展示直播标题；所属类目展示直播所属考试类目；开始时间按 yyyy-mm-dd hh:mm 展示。</li>
-                    <li><strong>交互</strong>：点击选择直播打开直播选择弹窗，支持多选；点击删除移除当前直播。</li>
+                    <li><strong>展示规则</strong>：作为独立玩法模块展示；仅展示当前已选择的直播列表。</li>
+                    <li><strong>字段</strong>：（1）预约课节ID：展示直播唯一ID。（2）直播主题：展示直播标题。（3）所属类目：展示直播所属考试类目。（4）开始时间：格式 yyyy-mm-dd hh:mm。</li>
+                    <li><strong>交互</strong>：点击“选择直播”打开直播选择弹窗并支持多选；点击删除移除当前直播。</li>
                   </ul>
                 </div>
                 <div class="annotation-section">
                   <h5>⑥ 按钮区</h5>
                   <ul>
-                    <li><strong>展示规则</strong>：保存、发布活动按钮固定展示在页面底部。</li>
-                    <li><strong>字段</strong>：保存按钮文案固定为“保存”；发布活动按钮文案固定为“发布活动”。</li>
-                    <li><strong>交互</strong>：点击保存仅保存当前配置，活动保持未发布；点击发布活动时校验基础信息与四类玩法必填项，校验通过后状态切换为已发布。</li>
+                    <li><strong>展示规则</strong>：按钮区常驻展示在编辑页底部；保存与发布均保留当前页操作入口。</li>
+                    <li><strong>字段</strong>：（1）保存：按钮文案固定为“保存”。（2）发布活动：按钮文案固定为“发布活动”。</li>
+                    <li><strong>交互</strong>：点击保存后仅保存当前配置，活动保持未发布；点击发布前校验基本信息与四类玩法必填项，校验通过后状态切换为已发布。</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="page-block" id="page-teacher-scene">
+            <div class="page-head">
+              <div>
+                <h3>6. 老师配置生效场景页</h3>
+                <p class="page-desc">在既有老师配置后台中补充“会员积分抵扣”生效位置，供运营勾选后直接配置承接老师，打通首页积分抵扣入口与后台老师配置链路。</p>
+              </div>
+              <span class="page-tag">后台配置页</span>
+            </div>
+            <div class="review-split">
+              <div class="figure-wrap">
+                <img class="tall-figure" data-lightbox-mode="scroll" src="./assets/review-hd/老师配置-生效场景页-hd.png" alt="老师配置生效场景页">
+                <div class="zoom-hint">点击图片可放大查看</div>
+              </div>
+              <aside class="annotation-panel">
+                <h4>老师配置页标注说明</h4>
+                <p class="annotation-intro">按新增勾选项拆分说明。</p>
+                <div class="annotation-section">
+                  <h5>① 会员积分抵扣勾选项</h5>
+                  <ul>
+                    <li><strong>展示规则</strong>：在“环球网校App”场景组内新增“会员积分抵扣”勾选项，与首页、个人中心、学习中心等现有位置并列展示。</li>
+                    <li><strong>字段</strong>：（1）勾选项名称：固定为“会员积分抵扣”。（2）所属场景组：固定归属“环球网校App”。（3）配置用途：运营勾选后，为首页会员积分抵扣入口配置承接老师。（4）二维码分配规则：与首页保持一致。</li>
+                    <li><strong>交互</strong>：勾选并保存后，首页会员积分抵扣入口使用该老师配置。</li>
                   </ul>
                 </div>
               </aside>
@@ -998,52 +1030,53 @@
 
         <section id="support">
           <h2>会员日活动补充说明</h2>
-          <p class="section-intro">本节用于补充正式评审中研发、测试、运营最容易继续追问的内容，包括前后台流转关系、按钮弹窗交互、发布校验和关键状态定义。</p>
+          <p class="section-intro">按补充模块拆分说明前后台流转、按钮交互、发布校验和状态规则。</p>
           <div class="review-split">
             <div class="figure-wrap">
               <img class="tall-figure" data-lightbox-mode="scroll" src="./assets/review-hd/会员日活动评审补充说明-hd.png" alt="会员日活动评审补充说明">
               <div class="zoom-hint">点击图片可放大查看</div>
             </div>
             <aside class="annotation-panel">
-              <h4>补充说明摘要</h4>
-              <p class="annotation-intro">这部分不是新增页面，而是把会员日活动从“后台配置”到“前台 H5 展示”的关键逻辑补齐，便于研发评估实现边界、测试整理校验用例。</p>
-              <div class="annotation-summary">
-                <h5>补充目的</h5>
-                <p>避免评审时只看页面结构，忽略后台配置如何驱动前台生效、按钮点击后如何回填、以及哪些校验会阻止发布。</p>
-              </div>
+              <h4>补充说明</h4>
+              <p class="annotation-intro">按补充模块拆分说明。</p>
               <div class="annotation-section">
                 <h5>① 前后台流转关系</h5>
                 <ul>
-                  <li>后台创建活动并完成玩法配置。</li>
-                  <li>活动发布后，前台 H5 根据已发布活动和活动时间拉取对应配置。</li>
-                  <li>会员首页“会员日活动”模块读取当前活动摘要信息，点击进入 H5 活动页。</li>
+                  <li><strong>展示规则</strong>：后台完成活动创建并发布后，前台才读取活动配置；未发布状态前台不读取活动内容。</li>
+                  <li><strong>字段</strong>：（1）后台活动状态：仅分已发布、未发布。（2）前台承接位置：会员权益首页展示活动入口，H5展示活动详情。（3）生效条件：已发布且当前时间命中活动时间。</li>
+                  <li><strong>交互</strong>：点击会员权益首页“会员日活动”入口进入H5活动页。</li>
                 </ul>
               </div>
               <div class="annotation-section">
                 <h5>② 按钮与弹窗交互</h5>
                 <ul>
-                  <li><strong>添加奖品</strong>：打开商品选择弹窗，多选后回填到购课抽奖列表。</li>
-                  <li><strong>添加礼品</strong>：根据礼品类型打开对应选择器，回填到等级礼品列表。</li>
-                  <li><strong>新增积分档位</strong>：直接在当前列表新增空行，等待输入积分值与概率。</li>
-                  <li><strong>选择直播</strong>：打开直播选择弹窗，多选后回填直播列表。</li>
+                  <li><strong>展示规则</strong>：添加奖品、添加礼品、新增积分档位、选择直播按对应玩法模块常驻展示。</li>
+                  <li><strong>字段</strong>：（1）添加奖品：打开商品选择弹窗，支持多选课程商品、实物商品。（2）添加礼品：新增礼品配置行，继续填写礼品类型、礼品内容、限领数量。（3）新增积分档位：新增积分值与概率配置行。（4）选择直播：打开直播选择弹窗，支持多选直播。</li>
+                  <li><strong>交互</strong>：确认选择后回填到对应配置列表。</li>
                 </ul>
               </div>
               <div class="annotation-section">
                 <h5>③ 发布校验规则</h5>
                 <ul>
-                  <li>活动名称、开始时间、结束时间为必填项。</li>
-                  <li>购课抽奖和刮刮乐送积分的概率总和必须等于 100%。</li>
-                  <li>礼品免费领取的礼品内容和限领数量均不能为空。</li>
-                  <li>启用会员日直播玩法时，至少需要选择一条直播数据。</li>
+                  <li><strong>展示规则</strong>：点击“发布活动”时触发统一校验；任一校验失败则不允许发布。</li>
+                  <li><strong>字段</strong>：（1）基础信息：活动名称、开始时间、结束时间必填，且开始时间早于结束时间。（2）购课抽奖：奖品列表不能为空，概率总和必须等于100%。（3）礼品免费领取：礼品内容与限领数量必填。（4）刮刮乐送积分：积分档位不能为空，概率总和必须等于100%。（5）会员日直播：启用时直播列表不能为空。</li>
+                  <li><strong>交互</strong>：校验失败时在对应模块展示错误提示。</li>
                 </ul>
               </div>
               <div class="annotation-section">
                 <h5>④ 关键状态说明</h5>
                 <ul>
-                  <li><strong>未发布</strong>：后台可编辑但前台不生效。</li>
-                  <li><strong>已发布</strong>：活动配置可被前台读取，前提是当前时间命中活动时间范围。</li>
-                  <li><strong>超出活动时间</strong>：活动配置保留在后台历史记录中，前台不再按活动态展示。</li>
-                  <li><strong>未配置玩法</strong>：对应玩法模块在前台不展示或不生效。</li>
+                  <li><strong>展示规则</strong>：后台状态仅分已发布、未发布；前台按活动时间展示未开始、进行中、已结束、未配置。</li>
+                  <li><strong>字段</strong>：（1）未发布：后台可编辑，前台不可见。（2）已发布且未开始：前台可展示活动入口，内容按未开始状态提示。（3）已发布且进行中：前台展示活动内容并允许参与。（4）已结束：前台活动进入已结束状态。（5）未配置玩法：前台H5不展示对应玩法模块。</li>
+                  <li><strong>交互</strong>：状态切换后前台按最新状态展示对应内容。</li>
+                </ul>
+              </div>
+              <div class="annotation-section">
+                <h5>⑤ 会员积分抵扣老师配置</h5>
+                <ul>
+                  <li><strong>展示规则</strong>：在既有老师配置后台“生效场景”中，环球网校App后新增“会员积分抵扣”位置。</li>
+                  <li><strong>字段</strong>：（1）生效场景：新增“会员积分抵扣”勾选项，位于环球网校App场景组内。（2）老师配置：运营勾选该位置后，为该位置配置承接老师。</li>
+                  <li><strong>交互</strong>：勾选并保存后，首页“会员积分抵扣”入口使用该老师配置。</li>
                 </ul>
               </div>
             </aside>
